@@ -1,3 +1,4 @@
+```cs
 local sex = loadstring(game:HttpGet('https://raw.githubusercontent.com/3345-c-a-t-s-u-s/Garry-UI/main/source'))()
 
 local Window = sex:Create('BEDOL HUB','BLADE BALL','TESTER')
@@ -42,3 +43,5 @@ Window:CreateButton('ads',false,function(val)
 		game:GetService('TweenService'):Create(workspace.CurrentCamera,TweenInfo.new(0.5),{FieldOfView = 70}):Play()
 	end
 end)
+
+```
