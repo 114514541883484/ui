@@ -1,30 +1,44 @@
-local NEVERWIN = loadstring(game:HttpGet("https://raw.github.com/114514541883484/ui/main/NEVERWIN.v2.lua"))()
+local sex = loadstring(game:HttpGet('https://raw.githubusercontent.com/3345-c-a-t-s-u-s/Garry-UI/main/source'))()
 
-local Window = NEVERWIN:Window("NEVERWIN","MAKE BY CAT_SUS")
+local Window = sex:Create('BEDOL HUB','BLADE BALL','TESTER')
+local ExampleTab = Window:CreateTab('Example','earth')
 
-Window:TabLabel('Tab Section')
-
-local Tab = Window:Tab('Tab Name')
-
-local SectionLeft = Tab:Section('Example',"left")
-
-local SectionRight = Tab:Section('Section',"right")
-
-SectionRight:Label('WHO CARE')
-SectionLeft:Label('Label')
-
-SectionLeft:Button("Button",function()
-	print("button callback")
+ExampleTab:CreateButton("Button",function()
+	print('press button')
 end)
 
-SectionLeft:Slider('Slider',1,100,4,function(val)
-	print('slider ',val)
-end)
+ExampleTab:CreateLabel("Label")
 
-SectionLeft:Toggle('Toggle',false,function(val)
+ExampleTab:CreateToggle("Toggle",false,function(val)
 	print('toggle',val)
 end)
 
-SectionLeft:Dropdown('Dropdpwn',{1,2,3},2,function(val)
-	print('dropdown',val)
+ExampleTab:CreateKeybind("Keybind",Enum.KeyCode.E,function(val)
+	print('keybind',val)
+end)
+
+ExampleTab:CreateSlider("Slider",1,100,10,function(val)
+	print('slider',val)
+end)
+
+Window:CreateButton('earth',false,function(val)
+	print('set time')
+	if val then
+		Window:Notify('Time Change','Night',1.5)
+		game:GetService('TweenService'):Create(game:GetService('Lighting'),TweenInfo.new(0.5),{ClockTime = 0}):Play()
+	else
+		Window:Notify('Time Change','Day',1.5)
+		game:GetService('TweenService'):Create(game:GetService('Lighting'),TweenInfo.new(0.5),{ClockTime = 14}):Play()
+	end
+end)
+
+Window:CreateButton('ads',false,function(val)
+	print('fov change')
+	if val then
+		Window:Notify('FOV Change','120',1)
+		game:GetService('TweenService'):Create(workspace.CurrentCamera,TweenInfo.new(0.5),{FieldOfView = 120}):Play()
+	else
+		Window:Notify('FOV Change','70',1)
+		game:GetService('TweenService'):Create(workspace.CurrentCamera,TweenInfo.new(0.5),{FieldOfView = 70}):Play()
+	end
 end)
