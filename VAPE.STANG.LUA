@@ -139,9 +139,28 @@ function lib:Window(text, preset, closebind)
     BackgroundImage.Size = UDim2.new(1, 0, 1, 0)
     BackgroundImage.Position = UDim2.new(0, 0, 0, 0)
     BackgroundImage.BackgroundTransparency = 1
-    BackgroundImage.Image = "rbxassetid://125659062095965" -- 请替换为你想要的图片ID
+    BackgroundImage.Image = "rbxassetid://77913202408223" -- 请替换为你想要的图片ID
     BackgroundImage.ScaleType = Enum.ScaleType.Stretch
     BackgroundImage.ZIndex = 1
+    
+    -- 添加炫彩边框
+    local RainbowStroke = Instance.new("UIStroke")
+    RainbowStroke.Name = "RainbowStroke"
+    RainbowStroke.Parent = BackgroundImage
+    RainbowStroke.Thickness = 5
+    RainbowStroke.Color = Color3.fromRGB(255, 0, 0)
+    RainbowStroke.Transparency = 0
+    
+    -- 炫彩边框动画
+    spawn(function()
+        local hue = 0
+        while true do
+            hue = hue + 0.01
+            if hue > 1 then hue = 0 end
+            RainbowStroke.Color = Color3.fromHSV(hue, 1, 1)
+            wait(0.05)
+        end
+    end)
 
     TabHold.Name = "TabHold"
     TabHold.Parent = Main
@@ -257,7 +276,7 @@ function lib:Window(text, preset, closebind)
 
         OkayBtn.Name = "OkayBtn"
         OkayBtn.Parent = NotificationFrame
-        OkayBtn.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+        OkayBtn.BackgroundTransparency = 1
         OkayBtn.Position = UDim2.new(0.0609756112, 0, 0.720207274, 0)
         OkayBtn.Size = UDim2.new(0, 144, 0, 42)
         OkayBtn.AutoButtonColor = false
@@ -266,7 +285,7 @@ function lib:Window(text, preset, closebind)
         OkayBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
         OkayBtn.TextSize = 14.000
 
-        OkayBtnCorner.CornerRadius = UDim.new(0, 5)
+        OkayBtnCorner.CornerRadius = UDim.new(0, 45)
         OkayBtnCorner.Name = "OkayBtnCorner"
         OkayBtnCorner.Parent = OkayBtn
 
@@ -313,7 +332,7 @@ function lib:Window(text, preset, closebind)
                 TweenService:Create(
                     OkayBtn,
                     TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                    {BackgroundTransparency = 0.8}
                 ):Play()
             end
         )
@@ -323,7 +342,7 @@ function lib:Window(text, preset, closebind)
                 TweenService:Create(
                     OkayBtn,
                     TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
+                    {BackgroundTransparency = 1}
                 ):Play()
             end
         )
@@ -475,7 +494,7 @@ function lib:Window(text, preset, closebind)
 
             Button.Name = "Button"
             Button.Parent = Tab
-            Button.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Button.BackgroundTransparency = 1
             Button.Size = UDim2.new(0, 363, 0, 42)
             Button.AutoButtonColor = false
             Button.Font = Enum.Font.SourceSans
@@ -483,7 +502,7 @@ function lib:Window(text, preset, closebind)
             Button.TextColor3 = Color3.fromRGB(0, 0, 0)
             Button.TextSize = 14.000
 
-            ButtonCorner.CornerRadius = UDim.new(0, 5)
+            ButtonCorner.CornerRadius = UDim.new(0, 45)
             ButtonCorner.Name = "ButtonCorner"
             ButtonCorner.Parent = Button
 
@@ -504,7 +523,7 @@ function lib:Window(text, preset, closebind)
                     TweenService:Create(
                         Button,
                         TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                        {BackgroundTransparency = 0.8}
                     ):Play()
                 end
             )
@@ -514,7 +533,7 @@ function lib:Window(text, preset, closebind)
                     TweenService:Create(
                         Button,
                         TweenInfo.new(.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
+                        {BackgroundTransparency = 1}
                     ):Play()
                 end
             )
@@ -544,7 +563,7 @@ function lib:Window(text, preset, closebind)
 
             Toggle.Name = "Toggle"
             Toggle.Parent = Tab
-            Toggle.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Toggle.BackgroundTransparency = 1
             Toggle.Position = UDim2.new(0.215625003, 0, 0.446271926, 0)
             Toggle.Size = UDim2.new(0, 363, 0, 42)
             Toggle.AutoButtonColor = false
@@ -553,7 +572,7 @@ function lib:Window(text, preset, closebind)
             Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
             Toggle.TextSize = 14.000
 
-            ToggleCorner.CornerRadius = UDim.new(0, 5)
+            ToggleCorner.CornerRadius = UDim.new(0, 45)
             ToggleCorner.Name = "ToggleCorner"
             ToggleCorner.Parent = Toggle
 
@@ -619,7 +638,7 @@ function lib:Window(text, preset, closebind)
                         TweenService:Create(
                             Toggle,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                            {BackgroundTransparency = 0.8}
                         ):Play()
                         TweenService:Create(
                             FrameToggle1,
@@ -652,7 +671,7 @@ function lib:Window(text, preset, closebind)
                         TweenService:Create(
                             Toggle,
                             TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {BackgroundColor3 = Color3.fromRGB(34, 34, 34)}
+                            {BackgroundTransparency = 1}
                         ):Play()
                         TweenService:Create(
                             FrameToggle1,
@@ -691,7 +710,7 @@ function lib:Window(text, preset, closebind)
                 TweenService:Create(
                     Toggle,
                     TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                    {BackgroundColor3 = Color3.fromRGB(37, 37, 37)}
+                    {BackgroundTransparency = 0.8}
                 ):Play()
                 TweenService:Create(
                     FrameToggle1,
@@ -1519,7 +1538,7 @@ function lib:Window(text, preset, closebind)
 
             Label.Name = "Button"
             Label.Parent = Tab
-            Label.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Label.BackgroundTransparency = 1
             Label.Size = UDim2.new(0, 363, 0, 42)
             Label.AutoButtonColor = false
             Label.Font = Enum.Font.SourceSans
@@ -1527,7 +1546,7 @@ function lib:Window(text, preset, closebind)
             Label.TextColor3 = Color3.fromRGB(0, 0, 0)
             Label.TextSize = 14.000
 
-            LabelCorner.CornerRadius = UDim.new(0, 5)
+            LabelCorner.CornerRadius = UDim.new(0, 45)
             LabelCorner.Name = "ButtonCorner"
             LabelCorner.Parent = Label
 
@@ -1619,7 +1638,7 @@ function lib:Window(text, preset, closebind)
 
             Bind.Name = "Bind"
             Bind.Parent = Tab
-            Bind.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+            Bind.BackgroundTransparency = 1
             Bind.Size = UDim2.new(0, 363, 0, 42)
             Bind.AutoButtonColor = false
             Bind.Font = Enum.Font.SourceSans
@@ -1627,7 +1646,7 @@ function lib:Window(text, preset, closebind)
             Bind.TextColor3 = Color3.fromRGB(0, 0, 0)
             Bind.TextSize = 14.000
 
-            BindCorner.CornerRadius = UDim.new(0, 5)
+            BindCorner.CornerRadius = UDim.new(0, 45)
             BindCorner.Name = "BindCorner"
             BindCorner.Parent = Bind
 
