@@ -143,23 +143,19 @@ function lib:Window(text, preset, closebind)
     BackgroundImage.ScaleType = Enum.ScaleType.Stretch
     BackgroundImage.ZIndex = 1
     
-    -- 添加炫彩边框
+    -- 添加炫彩边框到Main框架
     local RainbowStroke = Instance.new("UIStroke")
     RainbowStroke.Name = "RainbowStroke"
-    RainbowStroke.Parent = BackgroundImage
-    RainbowStroke.Thickness = 5
+    RainbowStroke.Parent = Main
+    RainbowStroke.Thickness = 3
     RainbowStroke.Color = Color3.fromRGB(255, 0, 0)
     RainbowStroke.Transparency = 0
     
-    -- 炫彩边框动画
-    spawn(function()
-        local hue = 0
-        while true do
-            hue = hue + 0.01
-            if hue > 1 then hue = 0 end
-            RainbowStroke.Color = Color3.fromHSV(hue, 1, 1)
-            wait(0.05)
-        end
+    -- 炫彩边框动画使用RunService
+    local rainbowConnection
+    rainbowConnection = RunService.Heartbeat:Connect(function()
+        local hue = (tick() * 2) % 1
+        RainbowStroke.Color = Color3.fromHSV(hue, 1, 1)
     end)
 
     TabHold.Name = "TabHold"
