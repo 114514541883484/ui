@@ -32,6 +32,7 @@ Button.TextScaled = true
 Button.TextSize = 33.000
 Button.TextWrapped = true
 Button.Draggable = true
+UICorner.CornerRadius = UDim.new(0, 45)
 UICorner.Parent = Button
 Button.MouseButton1Click:Connect(function()
 ToggleUI()
@@ -138,7 +139,7 @@ function lib:Window(text, preset, closebind)
     BackgroundImage.Size = UDim2.new(1, 0, 1, 0)
     BackgroundImage.Position = UDim2.new(0, 0, 0, 0)
     BackgroundImage.BackgroundTransparency = 1
-    BackgroundImage.Image = "rbxassetid://123176337589433" -- 请替换为你想要的图片ID
+    BackgroundImage.Image = "rbxassetid://125659062095965" -- 请替换为你想要的图片ID
     BackgroundImage.ScaleType = Enum.ScaleType.Stretch
     BackgroundImage.ZIndex = 1
 
