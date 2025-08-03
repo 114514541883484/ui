@@ -138,7 +138,7 @@ function lib:Window(text, preset, closebind)
     BackgroundImage.Size = UDim2.new(1, 0, 1, 0)
     BackgroundImage.Position = UDim2.new(0, 0, 0, 0)
     BackgroundImage.BackgroundTransparency = 1
-    BackgroundImage.Image = "rbxassetid://6014261993" -- 请替换为你想要的图片ID
+    BackgroundImage.Image = "rbxassetid://123176337589433" -- 请替换为你想要的图片ID
     BackgroundImage.ScaleType = Enum.ScaleType.Stretch
     BackgroundImage.ZIndex = 1
 
@@ -149,7 +149,7 @@ function lib:Window(text, preset, closebind)
     TabHold.BackgroundTransparency = 1.000
     TabHold.BorderSizePixel = 0
     TabHold.Position = UDim2.new(0.0339285731, 0, 0.147335425, 0)
-    TabHold.Size = UDim2.new(0, 107, 0, 254)
+    TabHold.Size = UDim2.new(0, 107, 0, 435)
     TabHold.CanvasSize = UDim2.new(0, 0, 0, 0)
     TabHold.ScrollBarThickness = 0
     TabHold.ScrollingDirection = Enum.ScrollingDirection.Y
@@ -177,10 +177,10 @@ function lib:Window(text, preset, closebind)
     DragFrame.Parent = Main
     DragFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     DragFrame.BackgroundTransparency = 1.000
-    DragFrame.Size = UDim2.new(0, 560, 0, 41)
+    DragFrame.Size = UDim2.new(0, 500, 0, 41)
     DragFrame.ZIndex = 2
 
-    Main:TweenSize(UDim2.new(0, 560, 0, 319), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
+    Main:TweenSize(UDim2.new(0, 500, 0, 500), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
 
     MakeDraggable(DragFrame, Main)
 
@@ -190,7 +190,7 @@ function lib:Window(text, preset, closebind)
             Main:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
             uitoggled = true
         else
-            Main:TweenSize(UDim2.new(0, 560, 0, 319), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
+            Main:TweenSize(UDim2.new(0, 500, 0, 500), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, 0.5, true)
             uitoggled = false
         end
     end
@@ -224,7 +224,7 @@ function lib:Window(text, preset, closebind)
         NotificationHold.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
         NotificationHold.BackgroundTransparency = 1.000
         NotificationHold.BorderSizePixel = 0
-        NotificationHold.Size = UDim2.new(0, 560, 0, 319)
+        NotificationHold.Size = UDim2.new(0, 500, 0, 500)
         NotificationHold.AutoButtonColor = false
         NotificationHold.Font = Enum.Font.SourceSans
         NotificationHold.Text = ""
@@ -407,7 +407,7 @@ function lib:Window(text, preset, closebind)
         Tab.BackgroundTransparency = 1.000
         Tab.BorderSizePixel = 0
         Tab.Position = UDim2.new(0.31400001, 0, 0.147, 0)
-        Tab.Size = UDim2.new(0, 373, 0, 254)
+        Tab.Size = UDim2.new(0, 373, 0, 435)
         Tab.CanvasSize = UDim2.new(0, 0, 0, 0)
         Tab.ScrollBarThickness = 3
         Tab.ScrollingDirection = Enum.ScrollingDirection.Y
