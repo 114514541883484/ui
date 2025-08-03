@@ -138,7 +138,7 @@ function lib:Window(text, preset, closebind)
     BackgroundImage.Size = UDim2.new(1, 0, 1, 0)
     BackgroundImage.Position = UDim2.new(0, 0, 0, 0)
     BackgroundImage.BackgroundTransparency = 1
-    BackgroundImage.Image = "rbxassetid://6073763717" -- 请替换为你想要的图片ID
+    BackgroundImage.Image = "rbxassetid://6014261993" -- 请替换为你想要的图片ID
     BackgroundImage.ScaleType = Enum.ScaleType.Stretch
     BackgroundImage.ZIndex = 1
 
