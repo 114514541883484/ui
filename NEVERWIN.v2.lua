@@ -945,7 +945,30 @@ end)
 				UpdateSize()
 				return func
 			end
+function sectionasaste:Textbox(TextboxName, Placeholder, callback)
+    callback = callback or function() end
 
+    local Textbox = Instance.new("TextBox")
+    Textbox.Name = "Textbox"
+    Textbox.Parent = Section
+    Textbox.BackgroundColor3 = Color3.fromRGB(5, 31, 58)
+    Textbox.Size = UDim2.new(0.9, 0, 0.5, 0)
+    Textbox.Font = Enum.Font.SourceSansBold
+    Textbox.Text = ""
+    Textbox.PlaceholderText = TextboxName or "Textbox"
+    Textbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+    Textbox.TextScaled = true
+    Textbox.ZIndex = 12
+
+    -- 输入完成时回调
+    Textbox.FocusLost:Connect(function(enterPressed)
+        if enterPressed then
+            callback(Textbox.Text)
+        end
+    end)
+
+    return Textbox
+end
 			function sectionasaste:Dropdown(DropdownNameString,data,default,callback)
 				data=data or {}
 				default=default or data[1]
