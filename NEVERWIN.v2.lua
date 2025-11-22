@@ -82,89 +82,58 @@ function NEVERWIN:Window(WindowNameString,Title_str,cinfisize)
 
 	end
 
-	local close_buton = Instance.new("ImageLabel")
+function WindowFunctinos:EditOpenButton(config)
+    local Button = Instance.new("Frame")
+    Button.Name = "OpenButton"
+    Button.Size = UDim2.new(0.15, 0, 0.15, 0) -- 按钮大小
+    Button.Position = UDim2.new(0.5, 0, 0, 0) -- 居中最上方
+    Button.AnchorPoint = Vector2.new(0.5, 0)
+    Button.BackgroundColor3 = Color3.fromRGB(20, 20, 40)
+    Button.Parent = ScreenGui
 
-	local toggle_valu = true
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = config.CornerRadius or UDim.new(0, 10)
+    UICorner.Parent = Button
 
-	local function ui_toggleong(val)
+    local UIStroke = Instance.new("UIStroke")
+    UIStroke.Thickness = config.StrokeThickness or 2
+    UIStroke.Color = config.Color and config.Color.Keypoints[1].Value or Color3.new(1, 1, 1)
+    UIStroke.Parent = Button
 
-		for i,v in ipairs(Tabs) do
-			pcall(function()
-				v[3](val)
-			end)
-		end
+    local Icon = Instance.new("ImageLabel")
+    Icon.Name = "Icon"
+    Icon.Image = config.Icon or "rbxassetid://10088146939"
+    Icon.Size = config.IconSize or UDim2.new(0.6, 0, 0.6, 0)
+    Icon.BackgroundTransparency = 1
+    Icon.AnchorPoint = Vector2.new(0.5, 0)
+    Icon.Position = UDim2.new(0.5, 0, 0, 0)
+    Icon.Parent = Button
 
-		if val then
+    local Title = Instance.new("TextLabel")
+    Title.Name = "Title"
+    Title.Text = config.Title or "打开UI"
+    Title.Font = Enum.Font.SourceSansBold
+    Title.TextColor3 = Color3.new(1, 1, 1)
+    Title.TextScaled = true
+    Title.BackgroundTransparency = 1
+    Title.AnchorPoint = Vector2.new(0.5, 0)
+    Title.Position = config.TitlePosition or UDim2.new(0.5, 0, 0.85, 0)
+    Title.Size = UDim2.new(1, 0, 0.2, 0)
+    Title.Parent = Button
 
-			Movebar.Size=UDim2.new(1,0,0.1,0)
-			Movebar.Position=UDim2.new(0,0,0,0)
-			TweenService:Create(Window,TweenInfo.new(0.5),{BackgroundTransparency=0.1,Size=ooldsize,Position=get_window_loadpos()}):Play()
-			TweenService:Create(TabButtons,TweenInfo.new(1.3,Enum.EasingStyle.Quint),{Position=UDim2.new(0.004, 0,0.129, 0)}):Play()
-			TweenService:Create(WindowName,TweenInfo.new(.85,Enum.EasingStyle.Quint),{Position=UDim2.new(0.009, 0,0.019, 0),Size=UDim2.new(0.193292543, 0, 0.110772289, 0)}):Play()
-			TweenService:Create(Outline,TweenInfo.new(3,Enum.EasingStyle.Quint),{BackgroundTransparency=0}):Play()
-			TweenService:Create(Outline_2,TweenInfo.new(3,Enum.EasingStyle.Quint),{BackgroundTransparency=0}):Play()
-			TweenService:Create(Outline_3,TweenInfo.new(3,Enum.EasingStyle.Quint),{BackgroundTransparency=0}):Play()
-			TweenService:Create(ImageProfile,TweenInfo.new(1.5,Enum.EasingStyle.Quint),{ImageTransparency=0}):Play()
-			TweenService:Create(ProfileName,TweenInfo.new(1.9,Enum.EasingStyle.Quint),{TextTransparency=0}):Play()
-			TweenService:Create(Blackground,TweenInfo.new(1,Enum.EasingStyle.Quint),{BackgroundTransparency=0}):Play()
-			if Title then
-				TweenService:Create(Title,TweenInfo.new(.76,Enum.EasingStyle.Quint),{Position=UDim2.new(0.23886615, 0, 0.0406281464, 0)}):Play()
+    local ClickArea = Instance.new("TextButton")
+    ClickArea.Size = UDim2.new(1, 0, 1, 0)
+    ClickArea.BackgroundTransparency = 1
+    ClickArea.Text = ""
+    ClickArea.Parent = Button
+    ClickArea.MouseButton1Click:Connect(function()
+        toggle_valu = not toggle_valu
+        ui_toggleong(toggle_valu)
+    end)
 
-			end
+    return Button
+end
 
-			TweenService:Create(close_buton,TweenInfo.new(1.5),{Position=UDim2.new(0.940999985, 0, 0.0410000011, 0)}):Play()
-		else
-			if Title then
-				TweenService:Create(Title,TweenInfo.new(.76,Enum.EasingStyle.Quint),{Position=UDim2.new(0.239, 0, -0.064, 0)}):Play()
-
-			end
-
-			Movebar.Size=UDim2.new(1.1,0,1.1,0)
-			Movebar.Position=UDim2.new(0,0,-0.1,0)
-
-			TweenService:Create(Window,TweenInfo.new(0.5),{BackgroundTransparency=0.1,Size=UDim2.new(0.1,0,0.1,0),Position=(oldpocloe or Window.Position)}):Play()
-			TweenService:Create(TabButtons,TweenInfo.new(1.3,Enum.EasingStyle.Quint),{Position=UDim2.new(-.2, 0, 0.129449874, 0)}):Play()
-			TweenService:Create(WindowName,TweenInfo.new(.85,Enum.EasingStyle.Quint),{Position=UDim2.new(0.05, 0,0.1, 0),Size=UDim2.new(0.9,0,0.7,0)}):Play()
-			TweenService:Create(Outline,TweenInfo.new(1,Enum.EasingStyle.Quint),{BackgroundTransparency=1}):Play()
-			TweenService:Create(Outline_2,TweenInfo.new(1,Enum.EasingStyle.Quint),{BackgroundTransparency=1}):Play()
-			TweenService:Create(Outline_3,TweenInfo.new(1,Enum.EasingStyle.Quint),{BackgroundTransparency=1}):Play()
-			TweenService:Create(ImageProfile,TweenInfo.new(.6,Enum.EasingStyle.Quint),{ImageTransparency=1}):Play()
-			TweenService:Create(ProfileName,TweenInfo.new(.5,Enum.EasingStyle.Quint),{TextTransparency=1}):Play()
-			TweenService:Create(Blackground,TweenInfo.new(1,Enum.EasingStyle.Quint),{BackgroundTransparency=1}):Play()
-
-			TweenService:Create(close_buton,TweenInfo.new(0.4),{Position=UDim2.new(1,1,-1,1)}):Play()
-
-
-		end
-	end
-
-	close_buton.Name = "close_buton"
-	close_buton.Parent = Window
-	close_buton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	close_buton.BackgroundTransparency = 1.000
-	close_buton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	close_buton.BorderSizePixel = 0
-	close_buton.Position = UDim2.new(0.940999985, 0, 0.0410000011, 0)
-	close_buton.Size = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
-	close_buton.SizeConstraint = Enum.SizeConstraint.RelativeYY
-	close_buton.ZIndex = 4
-	close_buton.Image = "rbxassetid://10002398990"
-	close_buton.ImageTransparency=1
-
-	TweenService:Create(close_buton,TweenInfo.new(1),{ImageTransparency=0}):Play()
-
-	cretate_button(close_buton).MouseButton1Click:Connect(function()
-		toggle_valu=not toggle_valu
-		ui_toggleong(toggle_valu)
-	end)
-
-	cretate_button(WindowName).MouseButton1Click:Connect(function()
-		if not toggle_valu then
-			oldpocloe=Window.Position
-			toggle_valu=not toggle_valu
-			ui_toggleong(toggle_valu)
-		end
-	end)
 
 	ScreenGui.Parent = CoreGui
 	ScreenGui.ResetOnSpawn = false
