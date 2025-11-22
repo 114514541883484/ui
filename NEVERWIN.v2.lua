@@ -138,43 +138,25 @@ function NEVERWIN:Window(WindowNameString,Title_str,cinfisize)
 		end
 	end
 
-close_buton.Name = "close_buton"
-close_buton.Parent = Window
-close_buton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-close_buton.BackgroundTransparency = 1.000
-close_buton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-close_buton.BorderSizePixel = 0
-close_buton.Position = UDim2.new(0.5, 0, 0, 0) -- 居中最上方
-close_buton.AnchorPoint = Vector2.new(0.5, 0)
-close_buton.Size = UDim2.new(0.15, 0, 0.15, 0) -- 按钮大小
-close_buton.ZIndex = 4
-close_buton.Image = "rbxassetid://10088146939" -- 打开UI图标
-close_buton.ImageTransparency = 0
+	close_buton.Name = "close_buton"
+	close_buton.Parent = Window
+	close_buton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	close_buton.BackgroundTransparency = 1.000
+	close_buton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	close_buton.BorderSizePixel = 0
+	close_buton.Position = UDim2.new(0.940999985, 0, 0.0410000011, 0)
+	close_buton.Size = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
+	close_buton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+	close_buton.ZIndex = 4
+	close_buton.Image = "rbxassetid://10002398990"
+	close_buton.ImageTransparency=1
 
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = close_buton
+	TweenService:Create(close_buton,TweenInfo.new(1),{ImageTransparency=0}):Play()
 
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Thickness = 3
-UIStroke.Color = Color3.fromRGB(255, 255, 255)
-UIStroke.Parent = close_buton
-
-cretate_button(close_buton).MouseButton1Click:Connect(function()
-    toggle_valu = not toggle_valu
-    ui_toggleong(toggle_valu)
-
-    if not toggle_valu then
-        -- 窗口关闭时，显示按钮
-        close_buton.Visible = true
-        close_buton.ImageTransparency = 0
-    else
-        -- 窗口打开时，隐藏按钮
-        close_buton.Visible = false
-    end
-end)
-
-
+	cretate_button(close_buton).MouseButton1Click:Connect(function()
+		toggle_valu=not toggle_valu
+		ui_toggleong(toggle_valu)
+	end)
 
 	cretate_button(WindowName).MouseButton1Click:Connect(function()
 		if not toggle_valu then
@@ -355,59 +337,6 @@ end)
 
 		return llr
 	end
-    function WindowFunctinos:EditOpenButton(config)
-    local Button = Instance.new("Frame")
-    Button.Name = "OpenButton"
-    Button.Size = UDim2.new(0.15, 0, 0.15, 0)
-    Button.Position = UDim2.new(0.5, 0, 0, 0)
-    Button.AnchorPoint = Vector2.new(0.5, 0)
-    Button.BackgroundColor3 = Color3.fromRGB(20, 20, 40)
-    Button.Parent = ScreenGui
-
-    local UICorner = Instance.new("UICorner")
-    UICorner.CornerRadius = config.CornerRadius or UDim.new(0, 10)
-    UICorner.Parent = Button
-
-    local UIStroke = Instance.new("UIStroke")
-    UIStroke.Thickness = config.StrokeThickness or 2
-    -- 默认渐变颜色，如果用户没传 Color
-    UIStroke.Color = (config.Color and config.Color.Keypoints[1].Value) or Color3.fromRGB(255, 15, 123)
-    UIStroke.Parent = Button
-
-    local Icon = Instance.new("ImageLabel")
-    Icon.Name = "Icon"
-    Icon.Image = config.Icon or "rbxassetid://10088146939"
-    Icon.Size = config.IconSize or UDim2.new(0.6, 0, 0.6, 0)
-    Icon.BackgroundTransparency = 1
-    Icon.AnchorPoint = Vector2.new(0.5, 0)
-    Icon.Position = UDim2.new(0.5, 0, 0, 0)
-    Icon.Parent = Button
-
-    local Title = Instance.new("TextLabel")
-    Title.Name = "Title"
-    Title.Text = config.Title or "打开UI"
-    Title.Font = Enum.Font.SourceSansBold
-    Title.TextColor3 = Color3.new(1, 1, 1)
-    Title.TextScaled = true
-    Title.BackgroundTransparency = 1
-    Title.AnchorPoint = Vector2.new(0.5, 0)
-    Title.Position = config.TitlePosition or UDim2.new(0.5, 0, 0.85, 0)
-    Title.Size = UDim2.new(1, 0, 0.2, 0)
-    Title.Parent = Button
-
-    local ClickArea = Instance.new("TextButton")
-    ClickArea.Size = UDim2.new(1, 0, 1, 0)
-    ClickArea.BackgroundTransparency = 1
-    ClickArea.Text = ""
-    ClickArea.Parent = Button
-    ClickArea.MouseButton1Click:Connect(function()
-        toggle_valu = not toggle_valu
-        ui_toggleong(toggle_valu)
-    end)
-
-    return Button
-end
-
 
 	function WindowFunctinos:Tab(TAB_NAME,icon)
 		local TabAssets={}
