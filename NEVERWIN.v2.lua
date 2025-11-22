@@ -137,26 +137,28 @@ function NEVERWIN:Window(WindowNameString,Title_str,cinfisize)
 
 		end
 	end
+close_buton.Name = "close_buton"
+close_buton.Parent = Window
+close_buton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+close_buton.BackgroundTransparency = 1.000
+close_buton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+close_buton.BorderSizePixel = 0
+close_buton.Position = UDim2.new(0.940999985, 0, 0.0410000011, 0)
+close_buton.Size = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
+close_buton.SizeConstraint = Enum.SizeConstraint.RelativeYY
+close_buton.ZIndex = 4
+close_buton.Image = "rbxassetid://10002398990"
+close_buton.ImageTransparency=1
 
-	close_buton.Name = "close_buton"
-	close_buton.Parent = Window
-	close_buton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	close_buton.BackgroundTransparency = 1.000
-	close_buton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	close_buton.BorderSizePixel = 0
-	close_buton.Position = UDim2.new(0.940999985, 0, 0.0410000011, 0)
-	close_buton.Size = UDim2.new(0.0500000007, 0, 0.0500000007, 0)
-	close_buton.SizeConstraint = Enum.SizeConstraint.RelativeYY
-	close_buton.ZIndex = 4
-	close_buton.Image = "rbxassetid://10002398990"
-	close_buton.ImageTransparency=1
+TweenService:Create(close_buton,TweenInfo.new(1),{ImageTransparency=0}):Play()
 
-	TweenService:Create(close_buton,TweenInfo.new(1),{ImageTransparency=0}):Play()
+cretate_button(close_buton).MouseButton1Click:Connect(function()
+    toggle_valu=not toggle_valu
+    ui_toggleong(toggle_valu)
+end)
 
-	cretate_button(close_buton).MouseButton1Click:Connect(function()
-		toggle_valu=not toggle_valu
-		ui_toggleong(toggle_valu)
-	end)
+
+
 
 	cretate_button(WindowName).MouseButton1Click:Connect(function()
 		if not toggle_valu then
