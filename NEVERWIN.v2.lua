@@ -662,66 +662,6 @@ function NEVERWIN:Window(WindowNameString,Title_str,cinfisize)
 				return func
 
 			end
-function sectionasaste:Textbox(TextboxNameString, ClearOnFocus, callback)
-    TextboxNameString = TextboxNameString or "Textbox"
-    ClearOnFocus = ClearOnFocus or false
-    callback = callback or function() end
-
-    local Textbox = Instance.new("Frame")
-    local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-    local Title = Instance.new("TextLabel")
-    local Input = Instance.new("TextBox")
-    local UICorner = Instance.new("UICorner")
-
-    Textbox.Name = "Textbox"
-    Textbox.Parent = Section
-    Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Textbox.BackgroundTransparency = 1.000
-    Textbox.Size = UDim2.new(0.9, 0, 0.5, 0)
-    Textbox.ZIndex = 12
-
-    UIAspectRatioConstraint.Parent = Textbox
-    UIAspectRatioConstraint.AspectRatio = 10.000
-    UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
-
-    Title.Name = "Title"
-    Title.Parent = Textbox
-    Title.BackgroundTransparency = 1.000
-    Title.Size = UDim2.new(0.4, 0, 1, 0)
-    Title.Font = Enum.Font.SourceSansBold
-    Title.Text = TextboxNameString
-    Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Title.TextScaled = true
-    Title.TextXAlignment = Enum.TextXAlignment.Left
-
-    Input.Parent = Textbox
-    Input.AnchorPoint = Vector2.new(1, 0.5)
-    Input.Position = UDim2.new(1, 0, 0.5, 0)
-    Input.Size = UDim2.new(0.55, 0, 0.8, 0)
-    Input.BackgroundColor3 = Color3.fromRGB(5, 31, 58)
-    Input.TextColor3 = Color3.fromRGB(255, 255, 255)
-    Input.Font = Enum.Font.SourceSans
-    Input.TextScaled = true
-    Input.ClearTextOnFocus = ClearOnFocus
-    Input.PlaceholderText = "输入内容..."
-    UICorner.CornerRadius = UDim.new(0, 3)
-    UICorner.Parent = Input
-
-    -- 当用户输入完成时触发回调
-    Input.FocusLost:Connect(function(enterPressed)
-        if enterPressed then
-            callback(Input.Text)
-        end
-    end)
-
-    UpdateSize()
-
-    local func = {}
-    function func:Text(a)
-        Input.Text = tostring(a)
-    end
-    return func
-end
 
 			function sectionasaste:Toggle(ToggleName,Default,callback)
 				Default=Default or false
