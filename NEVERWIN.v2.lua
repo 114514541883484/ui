@@ -948,19 +948,31 @@ end)
 function sectionasaste:Textbox(TextboxName, Placeholder, callback)
     callback = callback or function() end
 
+    local TextboxFrame = Instance.new("Frame")
+    TextboxFrame.Name = "TextboxFrame"
+    TextboxFrame.Parent = Section
+    TextboxFrame.BackgroundColor3 = Color3.fromRGB(5, 31, 58)
+    TextboxFrame.Size = UDim2.new(0.9, 0, 0.5, 0)
+    TextboxFrame.ZIndex = 12
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 3)
+    UICorner.Parent = TextboxFrame
+
     local Textbox = Instance.new("TextBox")
     Textbox.Name = "Textbox"
-    Textbox.Parent = Section
-    Textbox.BackgroundColor3 = Color3.fromRGB(5, 31, 58)
-    Textbox.Size = UDim2.new(0.9, 0, 0.5, 0)
+    Textbox.Parent = TextboxFrame
+    Textbox.AnchorPoint = Vector2.new(0.5, 0.5)
+    Textbox.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Textbox.Size = UDim2.new(0.95, 0, 0.8, 0)
+    Textbox.BackgroundTransparency = 1
     Textbox.Font = Enum.Font.SourceSansBold
     Textbox.Text = ""
-    Textbox.PlaceholderText = TextboxName or "Textbox"
+    Textbox.PlaceholderText = TextboxName or "请输入内容"
     Textbox.TextColor3 = Color3.fromRGB(255, 255, 255)
     Textbox.TextScaled = true
-    Textbox.ZIndex = 12
+    Textbox.ZIndex = 13
 
-    -- 输入完成时回调
     Textbox.FocusLost:Connect(function(enterPressed)
         if enterPressed then
             callback(Textbox.Text)
