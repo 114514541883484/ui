@@ -11472,7 +11472,7 @@ do
                     Rotation = 90,
                     Transparency = NumberSequence.new{
                         NumberSequenceKeypoint.new(0, 1),
-                        NumberSequenceKeypoint.new(1, g.Transparent and 0.85 or 0.7),
+                        NumberSequenceKeypoint.new(1, 1),
                     },
                 }),
                 c('UICorner', {
@@ -12784,7 +12784,7 @@ function aa.CreateWindow(j, k)
         r.UIElements.Main.Background.BackgroundTransparency = t and aa.TransparencyValue or 0
         r.UIElements.Main.Gradient.UIGradient.Transparency = NumberSequence.new{
             NumberSequenceKeypoint.new(0, 1),
-            NumberSequenceKeypoint.new(1, t and 0.85 or 0.7),
+            NumberSequenceKeypoint.new(1, 1),
         }
     end
 
