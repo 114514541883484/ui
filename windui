@@ -8282,7 +8282,7 @@ do
             f.UIElements.Main = c('TextButton', {
                 Size = UDim2.new(1, 0, 0, 0),
                 AutomaticSize = 'Y',
-                BackgroundTransparency = 0.98,
+                BackgroundTransparency = 1,
                 ThemeTag = {
                     BackgroundColor3 = 'Text',
                 },
@@ -8433,7 +8433,7 @@ do
             if f.Hover then
                 f.UIElements.Main.MouseEnter:Connect(function()
                     if h then
-                        d(f.UIElements.Main.Highlight, 0.08, {BackgroundTransparency = 0.97}):Play()
+                        d(f.UIElements.Main.Highlight, 0.08, {BackgroundTransparency = 0.95}):Play()
                     end
                 end)
                 f.UIElements.Main.MouseLeave:Connect(function()
