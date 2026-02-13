@@ -11697,7 +11697,7 @@ do
                     BackgroundTransparency = 1,
                     Size = UDim2.new(1, 0, 1, 0),
                     Name = 'Background',
-                    Image = 'rbxassetid://135110254793230',
+                    Image = 'rbxassetid://116131068568595',
                     ScaleType = 'Slice',
                     SliceCenter = Rect.new(99, 99, 99, 99),
                     ThemeTag = {
