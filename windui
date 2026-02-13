@@ -8106,11 +8106,21 @@ do
                     RichText = true,
                     BackgroundTransparency = 1,
                     TextSize = 16,
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                    },
                     Text = g.Title,
                     FontFace = Font.new(b.Font, Enum.FontWeight.SemiBold),
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 }),
                 c('UIListLayout', {
                     Padding = UDim.new(0, e.UIPadding / 3),
@@ -8127,12 +8137,22 @@ do
                     BackgroundTransparency = 1,
                     TextTransparency = 0.4,
                     TextSize = 15,
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                    },
                     Text = g.Content,
                     FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
                     Parent = o,
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 })
             end
 
@@ -8284,9 +8304,7 @@ do
                     }),
                     c('TextLabel', {
                         Text = f.Title,
-                        ThemeTag = {
-                            TextColor3 = 'Text',
-                        },
+                        TextColor3 = Color3.new(1, 1, 1),
                         TextSize = 15,
                         TextWrapped = true,
                         RichText = true,
@@ -8297,6 +8315,18 @@ do
                         FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
                         BackgroundTransparency = 1,
                         AutomaticSize = 'Y',
+                    }, {
+                        c('UIGradient', {
+                            Color = ColorSequence.new({
+                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                            }),
+                        }),
                     }),
                 }),
                 c('UIStroke', {
@@ -8369,9 +8399,6 @@ do
             if f.Desc then
                 j = c('TextLabel', {
                     Text = f.Desc,
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                    },
                     TextTransparency = 0.4,
                     TextSize = 15,
                     TextWrapped = true,
@@ -8384,6 +8411,19 @@ do
                     BackgroundTransparency = 1,
                     AutomaticSize = 'Y',
                     Parent = f.UIElements.Main.Title,
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 })
             else
                 f.UIElements.Main.Title.AnchorPoint = Vector2.new(0, e.IsButtons and 0 or 0.5)
@@ -9010,16 +9050,24 @@ do
                     AnchorPoint = Vector2.new(0, 0.5),
                     ClearTextOnFocus = h.ClearTextOnFocus,
                     Text = h.Value,
-                    TextColor3 = Color3.fromHex(g.Theme.Text),
                     TextSize = 15,
                     ClipsDescendants = true,
                     TextXAlignment = 'Left',
                     FontFace = Font.new(b.Font),
                     PlaceholderText = h.PlaceholderText,
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                        PlaceholderColor3 = 'PlaceholderText',
-                    },
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 }),
                 c('UICorner', {
                     CornerRadius = UDim.new(0, e.UICorner),
@@ -9295,11 +9343,8 @@ do
                         Text = v,
                         TextXAlignment = 'Left',
                         FontFace = Font.new(e.Font, Enum.FontWeight.Medium),
-                        ThemeTag = {
-                            TextColor3 = 'Text',
-                            BackgroundColor3 = 'Text',
-                        },
                         TextSize = 15,
+                        TextColor3 = Color3.new(1, 1, 1),
                     }, {
                         f('UIPadding', {
                             PaddingTop = UDim.new(0, h.TabPadding),
@@ -9309,6 +9354,17 @@ do
                         }),
                         f('UICorner', {
                             CornerRadius = UDim.new(0, h.MenuCorner - h.MenuPadding),
+                        }),
+                        f('UIGradient', {
+                            Color = ColorSequence.new({
+                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                            }),
                         }),
                     })
 
@@ -10623,17 +10679,26 @@ do
                 TextXAlignment = f.TextXAlignment,
                 AutomaticSize = 'Y',
                 TextSize = f.TextSize,
-                ThemeTag = {
-                    TextColor3 = 'Text',
-                },
                 FontFace = Font.new(aa.Font, Enum.FontWeight.SemiBold),
                 Parent = e.Parent,
                 Size = UDim2.new(1, 0, 0, 0),
                 Text = f.Title,
+                TextColor3 = Color3.new(1, 1, 1),
             }, {
                 ab('UIPadding', {
                     PaddingTop = UDim.new(0, 4),
                     PaddingBottom = UDim.new(0, 2),
+                }),
+                ab('UIGradient', {
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                        ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                        ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                        ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                    }),
                 }),
             })
 
@@ -10692,10 +10757,6 @@ do
                 }),
                 b('TextLabel', {
                     Text = f.Title,
-                    TextColor3 = Color3.fromHex(d.Window.Theme.Text),
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                    },
                     TextTransparency = 0.4,
                     TextSize = 15,
                     Size = UDim2.new(1, 0, 0, 0),
@@ -10705,6 +10766,19 @@ do
                     LayoutOrder = 2,
                     TextXAlignment = 'Left',
                     BackgroundTransparency = 1,
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    b('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 }),
                 b('UIPadding', {
                     PaddingTop = UDim.new(0, 6),
@@ -12017,11 +12091,21 @@ do
                     RichText = true,
                     Size = UDim2.new(1, 0, 0, 0),
                     AutomaticSize = 'Y',
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                    },
                     BackgroundTransparency = 1,
                     Parent = P.UIElements.Main,
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 })
 
                 if O.Content then
@@ -12036,11 +12120,21 @@ do
                         Size = UDim2.new(1, 0, 0, 0),
                         AutomaticSize = 'Y',
                         LayoutOrder = 2,
-                        ThemeTag = {
-                            TextColor3 = 'Text',
-                        },
                         BackgroundTransparency = 1,
                         Parent = P.UIElements.Main,
+                        TextColor3 = Color3.new(1, 1, 1),
+                    }, {
+                        c('UIGradient', {
+                            Color = ColorSequence.new({
+                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                            }),
+                        }),
                     })
                 end
 
@@ -12074,14 +12168,11 @@ do
                         Text = S.Title or 'Button',
                         TextSize = 14,
                         FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
-                        ThemeTag = {
-                            TextColor3 = 'Text',
-                            BackgroundColor3 = 'Text',
-                        },
                         BackgroundTransparency = 0.93,
                         Parent = Q,
                         Size = UDim2.new(1 / #O.Buttons, -(((#O.Buttons - 1) * 10) / #O.Buttons), 0, 0),
                         AutomaticSize = 'Y',
+                        TextColor3 = Color3.new(1, 1, 1),
                     }, {
                         c('UICorner', {
                             CornerRadius = UDim.new(0, P.UICorner - 7),
@@ -12096,13 +12187,21 @@ do
                             Size = UDim2.new(1, (P.UIPadding / 1.85) * 2, 1, (P.UIPadding / 1.85) * 2),
                             Position = UDim2.new(0.5, 0, 0.5, 0),
                             AnchorPoint = Vector2.new(0.5, 0.5),
-                            ThemeTag = {
-                                BackgroundColor3 = 'Text',
-                            },
                             BackgroundTransparency = 1,
                         }, {
                             c('UICorner', {
                                 CornerRadius = UDim.new(0, P.UICorner - 7),
+                            }),
+                        }),
+                        c('UIGradient', {
+                            Color = ColorSequence.new({
+                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
                             }),
                         }),
                     })
@@ -12348,10 +12447,20 @@ function aa.CreateWindow(j, k)
             TextWrapped = false,
             Size = UDim2.new(0, 0, 0, 0),
             AutomaticSize = 'XY',
-            ThemeTag = {
-                TextColor3 = 'Text',
-            },
             BackgroundTransparency = 1,
+            TextColor3 = Color3.new(1, 1, 1),
+        }, {
+            d('UIGradient', {
+                Color = ColorSequence.new({
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                    ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                    ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                    ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                    ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                }),
+            }),
         }), d('UIListLayout', {
             Padding = UDim.new(0, 8),
             FillDirection = 'Horizontal',
@@ -12365,10 +12474,20 @@ function aa.CreateWindow(j, k)
             Size = UDim2.new(0, 0, 0, 0),
             AutomaticSize = 'XY',
             TextTransparency = 0.4,
-            ThemeTag = {
-                TextColor3 = 'Text',
-            },
             BackgroundTransparency = 1,
+            TextColor3 = Color3.new(1, 1, 1),
+        }, {
+            d('UIGradient', {
+                Color = ColorSequence.new({
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                    ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                    ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                    ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                    ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                }),
+            }),
         })
 
         d('Frame', {
@@ -12391,11 +12510,21 @@ function aa.CreateWindow(j, k)
                 AutomaticSize = 'Y',
                 LayoutOrder = 2,
                 TextYAlignment = 'Top',
-                ThemeTag = {
-                    TextColor3 = 'Text',
-                },
                 BackgroundTransparency = 1,
                 Parent = v,
+                TextColor3 = Color3.new(1, 1, 1),
+            }, {
+                d('UIGradient', {
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                        ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                        ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                        ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                    }),
+                }),
             })
         end
 
@@ -12435,9 +12564,19 @@ function aa.CreateWindow(j, k)
                     TextXAlignment = 'Left',
                     FontFace = Font.new(c.Font),
                     PlaceholderText = '\u{8bf7}\u{8f93}\u{5165}\u{5361}\u{5bc6}...',
-                    ThemeTag = {
-                        TextColor3 = 'Text',
-                    },
+                    TextColor3 = Color3.new(1, 1, 1),
+                }, {
+                    d('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                    }),
                 }),
                 d('UICorner', {
                     CornerRadius = UDim.new(0, 8),
