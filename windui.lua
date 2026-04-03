@@ -8035,11 +8035,22 @@ do
             local h, i, j = c('UICorner', {
                 CornerRadius = UDim.new(0, e.UICorner),
             }), (c('UIStroke', {
-                ThemeTag = {
-                    Color = 'Text',
-                },
+                Color = Color3.new(1, 1, 1),
                 Transparency = 0,
-                Thickness = 0.6,
+                Thickness = 2,
+            }, {
+                c('UIGradient', {
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                        ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                        ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                        ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                    }),
+                    Rotation = 0,
+                }),
             }))
 
             if g.Icon then
@@ -8109,18 +8120,6 @@ do
                     Text = g.Title,
                     FontFace = Font.new(b.Font, Enum.FontWeight.SemiBold),
                     TextColor3 = Color3.new(1, 1, 1),
-                }, {
-                    c('UIGradient', {
-                        Color = ColorSequence.new({
-                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                        }),
-                    }),
                 }),
                 c('UIListLayout', {
                     Padding = UDim.new(0, e.UIPadding / 3),
@@ -8141,18 +8140,6 @@ do
                     FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
                     Parent = o,
                     TextColor3 = Color3.new(1, 1, 1),
-                }, {
-                    c('UIGradient', {
-                        Color = ColorSequence.new({
-                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                        }),
-                    }),
                 })
             end
 
@@ -8282,10 +8269,8 @@ do
             f.UIElements.Main = c('TextButton', {
                 Size = UDim2.new(1, 0, 0, 0),
                 AutomaticSize = 'Y',
-                BackgroundTransparency = 1,
-                ThemeTag = {
-                    BackgroundColor3 = 'Text',
-                },
+                BackgroundTransparency = 0.8,
+                BackgroundColor3 = Color3.new(1, 1, 1),
             }, {
                 c('UICorner', {
                     CornerRadius = UDim.new(0, 8),
@@ -8315,27 +8300,7 @@ do
                         FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
                         BackgroundTransparency = 1,
                         AutomaticSize = 'Y',
-                    }, {
-                        c('UIGradient', {
-                            Color = ColorSequence.new({
-                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                            }),
-                        }),
                     }),
-                }),
-                c('UIStroke', {
-                    Thickness = 0.6,
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
-                    Transparency = 0,
-                    ApplyStrokeMode = 'Border',
                 }),
                 c('Frame', {
                     Size = UDim2.new(1, f.UIPadding * 2, 1, f.UIPadding * 2 + 6),
@@ -8412,18 +8377,6 @@ do
                     AutomaticSize = 'Y',
                     Parent = f.UIElements.Main.Title,
                     TextColor3 = Color3.new(1, 1, 1),
-                }, {
-                    c('UIGradient', {
-                        Color = ColorSequence.new({
-                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                        }),
-                    }),
                 })
             else
                 f.UIElements.Main.Title.AnchorPoint = Vector2.new(0, e.IsButtons and 0 or 0.5)
@@ -8580,11 +8533,8 @@ do
             end
 
             h.UIElements.Toggle = c('Frame', {
-                BackgroundTransparency = 1,
-                BackgroundColor3 = Color3.fromHex(g.Theme.Text),
-                ThemeTag = {
-                    BackgroundColor3 = 'Text',
-                },
+                BackgroundTransparency = 0.8,
+                BackgroundColor3 = Color3.new(1, 1, 1),
                 Parent = h.ToggleFrame.UIElements.Main,
                 Size = UDim2.new(0, 44, 0, 24),
                 AnchorPoint = Vector2.new(1, 0.5),
@@ -8593,23 +8543,12 @@ do
                 c('UICorner', {
                     CornerRadius = UDim.new(1, 0),
                 }),
-                c('UIStroke', {
-                    Color = Color3.fromHex(g.Theme.Text),
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
-                    Transparency = 0,
-                    Thickness = 1,
-                }),
                 c('Frame', {
                     Size = UDim2.new(0, 18, 0, 18),
                     Position = UDim2.new(0, 3, 0.5, 0),
                     AnchorPoint = Vector2.new(0, 0.5),
                     BackgroundTransparency = 0.15,
-                    BackgroundColor3 = Color3.fromHex(g.Theme.Text),
-                    ThemeTag = {
-                        BackgroundColor3 = 'Text',
-                    },
+                    BackgroundColor3 = Color3.new(1, 1, 1),
                 }, {
                     c('UICorner', {
                         CornerRadius = UDim.new(1, 0),
@@ -8617,9 +8556,7 @@ do
                     c('Frame', {
                         Size = UDim2.new(1, 0, 1, 0),
                         BackgroundTransparency = 1,
-                        ThemeTag = {
-                            BackgroundColor3 = 'Accent',
-                        },
+                        BackgroundColor3 = Color3.new(1, 1, 1),
                     }, {
                         c('UICorner', {
                             CornerRadius = UDim.new(1, 0),
@@ -8916,13 +8853,23 @@ do
                     CornerRadius = UDim.new(0, f.UICorner),
                 }),
                 d('UIStroke', {
-                    Color = Color3.fromHex(h.Theme.Text),
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
+                    Color = Color3.new(1, 1, 1),
                     Transparency = 0,
                     ApplyStrokeMode = 'Border',
-                    Thickness = 1,
+                    Thickness = 2,
+                }, {
+                    d('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
                 d('UIPadding', {
                     PaddingTop = UDim.new(0, f.UIPadding),
@@ -9030,15 +8977,12 @@ do
                 Hover = false,
             }
             h.UIElements.Input = c('Frame', {
-                BackgroundTransparency = 1,
-                BackgroundColor3 = Color3.fromHex(g.Theme.Text),
+                BackgroundTransparency = 0.8,
+                BackgroundColor3 = Color3.new(1, 1, 1),
                 Parent = h.InputFrame.UIElements.Main,
                 Size = UDim2.new(0, 150, 0, 30),
                 AnchorPoint = Vector2.new(1, 0.5),
                 Position = UDim2.new(1, 0, 0.5, 0),
-                ThemeTag = {
-                    BackgroundColor3 = 'Text',
-                },
                 ZIndex = 2,
             }, {
                 c('TextBox', {
@@ -9056,30 +9000,9 @@ do
                     FontFace = Font.new(b.Font),
                     PlaceholderText = h.PlaceholderText,
                     TextColor3 = Color3.new(1, 1, 1),
-                }, {
-                    c('UIGradient', {
-                        Color = ColorSequence.new({
-                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                        }),
-                    }),
                 }),
                 c('UICorner', {
                     CornerRadius = UDim.new(0, e.UICorner),
-                }),
-                c('UIStroke', {
-                    Color = Color3.fromHex(g.Theme.Text),
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
-                    Transparency = 0,
-                    ApplyStrokeMode = 'Border',
-                    Thickness = 1,
                 }),
                 c('UIPadding', {
                     PaddingTop = UDim.new(0, e.UIPadding),
@@ -9111,12 +9034,12 @@ do
                     return
                 end
 
-                d(h.UIElements.Input.UIStroke, 0.1, {Transparency = 0.8}):Play()
+                d(h.UIElements.Input, 0.1, {BackgroundTransparency = 0.6}):Play()
             end)
             h.UIElements.Input.TextBox.FocusLost:Connect(function()
                 if i then
                     h.Callback(h.UIElements.Input.TextBox.Text)
-                    d(h.UIElements.Input.UIStroke, 0.1, {Transparency = 0.93}):Play()
+                    d(h.UIElements.Input, 0.1, {BackgroundTransparency = 0.8}):Play()
                 end
             end)
 
@@ -9160,35 +9083,22 @@ do
                 Hover = false,
             }
             k.UIElements.Dropdown = f('TextButton', {
-                BackgroundTransparency = 1,
+                BackgroundTransparency = 0.8,
+                BackgroundColor3 = Color3.new(1, 1, 1),
                 Text = '',
                 FontFace = Font.new(e.Font, Enum.FontWeight.Medium),
                 TextSize = 15,
                 TextTransparency = 0.4,
                 TextXAlignment = 'Left',
-                BackgroundColor3 = Color3.fromHex(j.Theme.Text),
                 Parent = k.DropdownFrame.UIElements.Main,
                 Size = UDim2.new(0, 150, 0, 30),
                 AnchorPoint = Vector2.new(1, 0.5),
                 TextTruncate = 'AtEnd',
                 Position = UDim2.new(1, 0, 0.5, 0),
-                ThemeTag = {
-                    BackgroundColor3 = 'Text',
-                    TextColor3 = 'Text',
-                },
                 ZIndex = 2,
             }, {
                 f('UICorner', {
                     CornerRadius = UDim.new(0, h.UICorner),
-                }),
-                f('UIStroke', {
-                    Color = Color3.fromHex(j.Theme.Text),
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
-                    Transparency = 0,
-                    ApplyStrokeMode = 'Border',
-                    Thickness = 1,
                 }),
                 f('UIPadding', {
                     PaddingTop = UDim.new(0, h.UIPadding),
@@ -9226,11 +9136,22 @@ do
                     CornerRadius = UDim.new(0, h.MenuCorner),
                 }),
                 f('UIStroke', {
-                    Thickness = 1,
+                    Thickness = 2,
                     Transparency = 0,
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
+                    Color = Color3.new(1, 1, 1),
+                }, {
+                    f('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
                 f('Frame', {
                     BackgroundTransparency = 1,
@@ -9354,17 +9275,6 @@ do
                         }),
                         f('UICorner', {
                             CornerRadius = UDim.new(0, h.MenuCorner - h.MenuPadding),
-                        }),
-                        f('UIGradient', {
-                            Color = ColorSequence.new({
-                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                            }),
                         }),
                     })
 
@@ -9903,11 +9813,22 @@ do
                     CornerRadius = UDim.new(0, g.UICorner),
                 }),
                 c('UIStroke', {
-                    Thickness = 0.6,
-                    ThemeTag = {
-                        Color = 'Outline',
-                    },
-                    Transparency = 1,
+                    Thickness = 2,
+                    Color = Color3.new(1, 1, 1),
+                    Transparency = 0,
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
                 c('UIPadding', {
                     PaddingTop = UDim.new(0, g.UIPadding),
@@ -10045,11 +9966,22 @@ do
                     CornerRadius = UDim.new(0, 6),
                 }),
                 c('UIStroke', {
-                    Thickness = 0.6,
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
+                    Thickness = 2,
+                    Color = Color3.new(1, 1, 1),
                     Transparency = 0,
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
                 x,
             })
@@ -10088,11 +10020,22 @@ do
                     CornerRadius = UDim.new(0, 6),
                 }),
                 c('UIStroke', {
-                    Thickness = 0.6,
+                    Thickness = 2,
                     Transparency = 0,
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
+                    Color = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
                 y,
             }), c('Frame', {
@@ -10119,11 +10062,22 @@ do
                     CornerRadius = UDim.new(0, 4),
                 }),
                 c('UIStroke', {
-                    Thickness = 0.6,
-                    Transparency = 0.8,
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
+                    Thickness = 2,
+                    Transparency = 0,
+                    Color = Color3.new(1, 1, 1),
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
                 A,
             }), {}
@@ -10219,12 +10173,23 @@ do
                             CornerRadius = UDim.new(0, n.UICorner),
                         }),
                         c('UIStroke', {
-                            ThemeTag = {
-                                Color = 'Text',
-                            },
+                            Color = Color3.new(1, 1, 1),
                             Transparency = 0,
                             ApplyStrokeMode = 'Border',
-                            Thickness = 1,
+                            Thickness = 2,
+                        }, {
+                            c('UIGradient', {
+                                Color = ColorSequence.new({
+                                    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                                    ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                                    ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                                    ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                                    ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                                    ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                                }),
+                                Rotation = 0,
+                            }),
                         }),
                         c('UIPadding', {
                             PaddingTop = UDim.new(0, n.UIPadding),
@@ -10604,12 +10569,23 @@ do
                     CornerRadius = UDim.new(0, n.UICorner),
                 }),
                 c('UIStroke', {
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
-                    Transparency = 0.93,
+                    Color = Color3.new(1, 1, 1),
+                    Transparency = 0,
                     ApplyStrokeMode = 'Border',
-                    Thickness = 1,
+                    Thickness = 2,
+                }, {
+                    c('UIGradient', {
+                        Color = ColorSequence.new({
+                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                        }),
+                        Rotation = 0,
+                    }),
                 }),
             })
 
@@ -10689,17 +10665,6 @@ do
                     PaddingTop = UDim.new(0, 4),
                     PaddingBottom = UDim.new(0, 2),
                 }),
-                ab('UIGradient', {
-                    Color = ColorSequence.new({
-                        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                        ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                        ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                        ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                        ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                    }),
-                }),
             })
 
             function f.SetTitle(g, h)
@@ -10767,18 +10732,6 @@ do
                     TextXAlignment = 'Left',
                     BackgroundTransparency = 1,
                     TextColor3 = Color3.new(1, 1, 1),
-                }, {
-                    b('UIGradient', {
-                        Color = ColorSequence.new({
-                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                        }),
-                    }),
                 }),
                 b('UIPadding', {
                     PaddingTop = UDim.new(0, 6),
@@ -11317,12 +11270,22 @@ do
             local h, i, j, k, n, o = c('UICorner', {
                 CornerRadius = UDim.new(0, g.UICorner),
             }), c('UIStroke', {
-                Thickness = 0.6,
-                Color = Color3.fromHex(f.Theme.Outline),
-                ThemeTag = {
-                    Color = 'Outline',
-                },
-                Transparency = 1,
+                Thickness = 2,
+                Color = Color3.new(1, 1, 1),
+                Transparency = 0,
+            }, {
+                c('UIGradient', {
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                        ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                        ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                        ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                    }),
+                    Rotation = 0,
+                }),
             }), c('Frame', {
                 Size = UDim2.new(0, 32, 0, 32),
                 Position = UDim2.new(1, 0, 1, 0),
@@ -11692,14 +11655,11 @@ do
             }, {
                 t,
                 s,
-                c('ImageLabel', {
+                c('Frame', {
                     BackgroundColor3 = Color3.fromHex(f.Theme.Accent),
                     BackgroundTransparency = 1,
                     Size = UDim2.new(1, 0, 1, 0),
                     Name = 'Background',
-                    Image = 'rbxassetid://76299501702083',
-                    ScaleType = 'Slice',
-                    SliceCenter = Rect.new(99, 99, 99, 99),
                     ThemeTag = {
                         BackgroundColor3 = 'Accent',
                     },
@@ -11707,6 +11667,35 @@ do
                 }, {
                     c('UICorner', {
                         CornerRadius = UDim.new(0, g.UICorner),
+                    }),
+                }),
+                c('Frame', {
+                    Size = UDim2.new(1, 0, 1, 0),
+                    Position = UDim2.new(0.5, 0, 0.5, 0),
+                    AnchorPoint = Vector2.new(0.5, 0.5),
+                    BackgroundTransparency = 1,
+                    Name = 'RainbowBorder',
+                    ZIndex = 1,
+                }, {
+                    c('UICorner', {
+                        CornerRadius = UDim.new(0, g.UICorner),
+                    }),
+                    c('UIStroke', {
+                        Thickness = 2,
+                        Color = Color3.new(1, 1, 1),
+                    }, {
+                        c('UIGradient', {
+                            Color = ColorSequence.new({
+                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
+                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
+                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
+                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
+                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
+                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                            }),
+                            Rotation = 0,
+                        }),
                     }),
                 }),
                 i,
@@ -11992,6 +11981,15 @@ do
                 g:Open()
             end)
 
+            local RainbowBorderGradient = g.UIElements.Main.RainbowBorder and g.UIElements.Main.RainbowBorder:FindFirstChild('UIStroke') and g.UIElements.Main.RainbowBorder.UIStroke:FindFirstChild('UIGradient')
+            if RainbowBorderGradient then
+                ab.RenderStepped:Connect(function()
+                    if g.UIElements.Main and g.UIElements.Main.Parent ~= nil then
+                        RainbowBorderGradient.Rotation = (RainbowBorderGradient.Rotation + 2) % 360
+                    end
+                end)
+            end
+
             function g.EditOpenButton(K, L)
                 task.wait()
 
@@ -12094,25 +12092,13 @@ do
                     BackgroundTransparency = 1,
                     Parent = P.UIElements.Main,
                     TextColor3 = Color3.new(1, 1, 1),
-                }, {
-                    c('UIGradient', {
-                        Color = ColorSequence.new({
-                            ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                            ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                            ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                            ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                            ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                            ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                            ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                        }),
-                    }),
                 })
 
                 if O.Content then
                     c('TextLabel', {
                         Text = O.Content,
                         TextSize = 16,
-                        TextTransparency = 0.4,
+                        TextTransparency = 0,
                         TextWrapped = true,
                         RichText = true,
                         FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
@@ -12123,18 +12109,6 @@ do
                         BackgroundTransparency = 1,
                         Parent = P.UIElements.Main,
                         TextColor3 = Color3.new(1, 1, 1),
-                    }, {
-                        c('UIGradient', {
-                            Color = ColorSequence.new({
-                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                            }),
-                        }),
                     })
                 end
 
@@ -12168,7 +12142,8 @@ do
                         Text = S.Title or 'Button',
                         TextSize = 14,
                         FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
-                        BackgroundTransparency = 1,
+                        BackgroundTransparency = 0.8,
+                        BackgroundColor3 = Color3.new(1, 1, 1),
                         Parent = Q,
                         Size = UDim2.new(1 / #O.Buttons, -(((#O.Buttons - 1) * 10) / #O.Buttons), 0, 0),
                         AutomaticSize = 'Y',
@@ -12183,34 +12158,13 @@ do
                             PaddingRight = UDim.new(0, P.UIPadding / 1.85),
                             PaddingBottom = UDim.new(0, P.UIPadding / 1.85),
                         }),
-                        c('Frame', {
-                            Size = UDim2.new(1, (P.UIPadding / 1.85) * 2, 1, (P.UIPadding / 1.85) * 2),
-                            Position = UDim2.new(0.5, 0, 0.5, 0),
-                            AnchorPoint = Vector2.new(0.5, 0.5),
-                            BackgroundTransparency = 1,
-                        }, {
-                            c('UICorner', {
-                                CornerRadius = UDim.new(0, P.UICorner - 7),
-                            }),
-                        }),
-                        c('UIGradient', {
-                            Color = ColorSequence.new({
-                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                            }),
-                        }),
                     })
 
                     T.MouseEnter:Connect(function()
-                        d(T.Frame, 0.1, {BackgroundTransparency = 1}):Play()
+                        d(T, 0.1, {BackgroundTransparency = 0.6}):Play()
                     end)
                     T.MouseLeave:Connect(function()
-                        d(T.Frame, 0.1, {BackgroundTransparency = 1}):Play()
+                        d(T, 0.1, {BackgroundTransparency = 0.8}):Play()
                     end)
                     T.MouseButton1Click:Connect(function()
                         P:Close()
@@ -12223,16 +12177,33 @@ do
                 return P
             end
 
+            local LP = game:GetService('Players').LocalPlayer
+            local function RainbowText(text)
+                local result = ''
+                local chars = {}
+                for char in text:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
+                    table.insert(chars, char)
+                end
+                for i, char in ipairs(chars) do
+                    local hue = (i - 1) / #chars
+                    local r = math.floor(math.sin(hue * math.pi * 2 + 0) * 127 + 128)
+                    local g = math.floor(math.sin(hue * math.pi * 2 + 2) * 127 + 128)
+                    local b = math.floor(math.sin(hue * math.pi * 2 + 4) * 127 + 128)
+                    result = result .. string.format('<font color="rgb(%d,%d,%d)">%s</font>', r, g, b, char)
+                end
+                return result
+            end
+            local usernameColor = 'rgb(255, 127, 0)'
             local M = g:Dialog{
-                Title = '\u{63d0}\u{793a}',
-                Content = '\u{786e}\u{5b9a}\u{8981}\u{5173}\u{95ed}\u{811a}\u{672c}\u{5417}\u{ff1f}',
+                Title = RainbowText('提示'),
+                Content = RainbowText('确定要关闭脚本吗？\n\n尊贵的：') .. '<font color="' .. usernameColor .. '">' .. LP.Name .. '</font>',
                 Buttons = {
                     {
-                        Title = '\u{70b9}\u{9519}\u{4e86}',
+                        Title = '点错了',
                         Callback = function() end,
                     },
                     {
-                        Title = '\u{662f}\u{7684}',
+                        Title = '是的',
                         Callback = function()
                             g:Close():Destroy()
                         end,
@@ -12293,7 +12264,7 @@ local aa, ab, b, c = {
     Theme = nil,
     Themes = nil,
     Transparent = false,
-    TransparencyValue = 0.25,
+    TransparencyValue = 1,
 }, game:GetService'RunService', a.load'a', a.load'c'
 local d, e, f = c.New, c.Tween, game:GetService'Players' and game:GetService'Players'.LocalPlayer or nil
 
@@ -12449,18 +12420,6 @@ function aa.CreateWindow(j, k)
             AutomaticSize = 'XY',
             BackgroundTransparency = 1,
             TextColor3 = Color3.new(1, 1, 1),
-        }, {
-            d('UIGradient', {
-                Color = ColorSequence.new({
-                    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                    ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                    ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                    ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                    ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                }),
-            }),
         }), d('UIListLayout', {
             Padding = UDim.new(0, 8),
             FillDirection = 'Horizontal',
@@ -12476,18 +12435,6 @@ function aa.CreateWindow(j, k)
             TextTransparency = 0.4,
             BackgroundTransparency = 1,
             TextColor3 = Color3.new(1, 1, 1),
-        }, {
-            d('UIGradient', {
-                Color = ColorSequence.new({
-                    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                    ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                    ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                    ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                    ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                }),
-            }),
         })
 
         d('Frame', {
@@ -12513,18 +12460,6 @@ function aa.CreateWindow(j, k)
                 BackgroundTransparency = 1,
                 Parent = v,
                 TextColor3 = Color3.new(1, 1, 1),
-            }, {
-                d('UIGradient', {
-                    Color = ColorSequence.new({
-                        ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                        ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                        ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                        ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                        ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                        ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                        ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
-                    }),
-                }),
             })
         end
 
@@ -12565,6 +12500,15 @@ function aa.CreateWindow(j, k)
                     FontFace = Font.new(c.Font),
                     PlaceholderText = '\u{8bf7}\u{8f93}\u{5165}\u{5361}\u{5bc6}...',
                     TextColor3 = Color3.new(1, 1, 1),
+                }),
+                d('UICorner', {
+                    CornerRadius = UDim.new(0, 8),
+                }),
+                d('UIStroke', {
+                    Color = Color3.new(1, 1, 1),
+                    Transparency = 0,
+                    ApplyStrokeMode = 'Border',
+                    Thickness = 2,
                 }, {
                     d('UIGradient', {
                         Color = ColorSequence.new({
@@ -12576,18 +12520,8 @@ function aa.CreateWindow(j, k)
                             ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
                             ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
                         }),
+                        Rotation = 0,
                     }),
-                }),
-                d('UICorner', {
-                    CornerRadius = UDim.new(0, 8),
-                }),
-                d('UIStroke', {
-                    ThemeTag = {
-                        Color = 'Text',
-                    },
-                    Transparency = 0.93,
-                    ApplyStrokeMode = 'Border',
-                    Thickness = 1,
                 }),
                 d('UIPadding', {
                     PaddingTop = UDim.new(0, 12),
@@ -12601,11 +12535,8 @@ function aa.CreateWindow(j, k)
             Text = '\u{63d0}\u{4ea4}',
             TextSize = 15,
             FontFace = Font.new(c.Font, Enum.FontWeight.Medium),
-            ThemeTag = {
-                TextColor3 = 'Text',
-                BackgroundColor3 = 'Text',
-            },
-            BackgroundTransparency = 0.9,
+            BackgroundColor3 = Color3.new(1, 1, 1),
+            BackgroundTransparency = 0.8,
             Parent = z,
             Size = UDim2.new(0, 0, 0, 35),
             AutomaticSize = 'X',
@@ -12619,19 +12550,6 @@ function aa.CreateWindow(j, k)
                 PaddingRight = UDim.new(0, 14),
                 PaddingBottom = UDim.new(0, 14),
             }),
-            d('Frame', {
-                Size = UDim2.new(1, 28, 1, 28),
-                Position = UDim2.new(0.5, 0, 0.5, 0),
-                AnchorPoint = Vector2.new(0.5, 0.5),
-                ThemeTag = {
-                    BackgroundColor3 = 'Text',
-                },
-                BackgroundTransparency = 1,
-            }, {
-                d('UICorner', {
-                    CornerRadius = UDim.new(0, 8),
-                }),
-            }),
         }))
 
         if k.KeySystem.URL then
@@ -12639,30 +12557,14 @@ function aa.CreateWindow(j, k)
                 Text = '\u{83b7}\u{5f97}\u{5361}\u{5bc6}',
                 TextSize = 15,
                 FontFace = Font.new(c.Font, Enum.FontWeight.Medium),
-                ThemeTag = {
-                    TextColor3 = 'Text',
-                    BackgroundColor3 = 'Text',
-                },
-                BackgroundTransparency = 0.9,
+                BackgroundColor3 = Color3.new(1, 1, 1),
+                BackgroundTransparency = 0.8,
                 Parent = z,
                 Size = UDim2.new(0, 0, 0, 35),
                 AutomaticSize = 'X',
             }, {
                 d('UICorner', {
                     CornerRadius = UDim.new(0, 8),
-                }),
-                d('Frame', {
-                    Size = UDim2.new(1, 28, 1, 28),
-                    Position = UDim2.new(0.5, 0, 0.5, 0),
-                    AnchorPoint = Vector2.new(0.5, 0.5),
-                    ThemeTag = {
-                        BackgroundColor3 = 'Text',
-                    },
-                    BackgroundTransparency = 1,
-                }, {
-                    d('UICorner', {
-                        CornerRadius = UDim.new(0, 8),
-                    }),
                 }),
                 d('UIPadding', {
                     PaddingTop = UDim.new(0, 14),
@@ -12692,10 +12594,10 @@ function aa.CreateWindow(j, k)
         end
 
         A.MouseEnter:Connect(function()
-            e(A.Frame, 0.1, {BackgroundTransparency = 0.9}):Play()
+            e(A, 0.1, {BackgroundTransparency = 0.6}):Play()
         end)
         A.MouseLeave:Connect(function()
-            e(A.Frame, 0.1, {BackgroundTransparency = 1}):Play()
+            e(A, 0.1, {BackgroundTransparency = 0.8}):Play()
         end)
         A.MouseButton1Click:Connect(function()
             local C = z.Frame.TextBox.Text
@@ -12719,10 +12621,10 @@ function aa.CreateWindow(j, k)
 
         if k.KeySystem.URL then
             B.MouseEnter:Connect(function()
-                e(B.Frame, 0.1, {BackgroundTransparency = 0.9}):Play()
+                e(B, 0.1, {BackgroundTransparency = 0.6}):Play()
             end)
             B.MouseLeave:Connect(function()
-                e(B.Frame, 0.1, {BackgroundTransparency = 1}):Play()
+                e(B, 0.1, {BackgroundTransparency = 0.8}):Play()
             end)
             B.MouseButton1Click:Connect(function()
                 setclipboard(k.KeySystem.URL)
