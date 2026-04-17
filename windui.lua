@@ -9090,6 +9090,7 @@ do
                 TextSize = 15,
                 TextTransparency = 0.4,
                 TextXAlignment = 'Left',
+                TextColor3 = Color3.new(1, 1, 1),
                 Parent = k.DropdownFrame.UIElements.Main,
                 Size = UDim2.new(0, 150, 0, 30),
                 AnchorPoint = Vector2.new(1, 0.5),
@@ -9284,7 +9285,8 @@ do
                         w.Selected = k.Value == w.Name
                     end
                     if w.Selected then
-                        w.UIElements.TabItem.BackgroundTransparency = 1
+                        w.UIElements.TabItem.BackgroundTransparency = 0.8
+                        w.UIElements.TabItem.BackgroundColor3 = Color3.new(1, 1, 1)
                     end
 
                     k.Tabs[u] = w
@@ -9301,7 +9303,7 @@ do
                             if not w.Selected then
                                 w.Selected = true
 
-                                g(w.UIElements.TabItem, 0.1, {BackgroundTransparency = 1}):Play()
+                                g(w.UIElements.TabItem, 0.1, {BackgroundTransparency = 0.8, BackgroundColor3 = Color3.new(1, 1, 1)}):Play()
                                 table.insert(k.Value, w.Name)
                             else
                                 if not k.AllowNone and #k.Value == 1 then
@@ -9329,7 +9331,7 @@ do
 
                             w.Selected = true
 
-                            g(w.UIElements.TabItem, 0.1, {BackgroundTransparency = 1}):Play()
+                            g(w.UIElements.TabItem, 0.1, {BackgroundTransparency = 0.8, BackgroundColor3 = Color3.new(1, 1, 1)}):Play()
 
                             k.Value = w.Name
                         end
@@ -12333,6 +12335,18 @@ function aa.GetThemes(j)
 end
 function aa.GetCurrentTheme(j)
     return aa.Theme.Name
+end
+function aa.Dpd2(j, tab, title, values, defaultValue, callback)
+    local Dropdown = a.load'j'
+    return Dropdown.New{
+        Title = title,
+        Values = values,
+        Value = defaultValue,
+        Multi = true,
+        Parent = tab.UIElements.Main,
+        Theme = aa.Theme,
+        Callback = callback,
+    }
 end
 function aa.GetTransparency(j)
     return aa.Transparent or false
