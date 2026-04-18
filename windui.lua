@@ -9252,9 +9252,10 @@ do
                 end
 
                 k.Tabs = {}
-                local maxWidth = 0
 
                 for u, v in next, r do
+                    task.wait(0.012)
+
                     local w = {
                         Name = v,
                         Selected = false,
@@ -9347,14 +9348,6 @@ do
                     o()
                     p()
                 end
-                
-                task.delay(0.1, function()
-                    local contentWidth = k.UIElements.UIListLayout.AbsoluteContentSize.X
-                    for _, tab in ipairs(k.Tabs) do
-                        tab.UIElements.TabItem.Size = UDim2.new(0, contentWidth, 0, 0)
-                        tab.UIElements.TabItem.AutomaticSize = 'Y'
-                    end
-                end)
             end
 
             k:Refresh(k.Values)
