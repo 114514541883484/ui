@@ -9128,7 +9128,8 @@ do
                     BackgroundColor3 = 'Accent',
                 },
                 BackgroundTransparency = 0,
-                Size = UDim2.new(1, 0, 1, 0),
+                Size = UDim2.new(0, 0, 1, 0),
+                AutomaticSize = 'X',
             }, {
                 f('UISizeConstraint', {
                     MinSize = Vector2.new(190, 0),
@@ -9156,7 +9157,8 @@ do
                 }),
                 f('Frame', {
                     BackgroundTransparency = 1,
-                    Size = UDim2.new(1, 0, 1, 0),
+                    Size = UDim2.new(0, 0, 1, 0),
+                    AutomaticSize = 'X',
                     Name = 'CanvasGroup',
                     ClipsDescendants = true,
                 }, {
@@ -9167,7 +9169,8 @@ do
                         PaddingBottom = UDim.new(0, h.MenuPadding),
                     }),
                     f('ScrollingFrame', {
-                        Size = UDim2.new(1, 0, 1, 0),
+                        Size = UDim2.new(0, 0, 1, 0),
+                        AutomaticSize = 'X',
                         ScrollBarThickness = 0,
                         ScrollingDirection = 'Y',
                         AutomaticCanvasSize = 'Y',
@@ -9207,10 +9210,11 @@ do
             local o, p = function()
                 k.UIElements.Menu.CanvasGroup.ScrollingFrame.CanvasSize = UDim2.fromOffset(0, k.UIElements.UIListLayout.AbsoluteContentSize.Y)
             end, function()
+                local contentWidth = k.UIElements.UIListLayout.AbsoluteContentSize.X + h.MenuPadding * 2
                 if #k.Values > 10 then
-                    k.UIElements.MenuCanvas.Size = UDim2.fromOffset(k.UIElements.UIListLayout.AbsoluteContentSize.X, 392)
+                    k.UIElements.MenuCanvas.Size = UDim2.fromOffset(contentWidth, 392)
                 else
-                    k.UIElements.MenuCanvas.Size = UDim2.fromOffset(k.UIElements.UIListLayout.AbsoluteContentSize.X, k.UIElements.UIListLayout.AbsoluteContentSize.Y + h.MenuPadding * 2 + 1)
+                    k.UIElements.MenuCanvas.Size = UDim2.fromOffset(contentWidth, k.UIElements.UIListLayout.AbsoluteContentSize.Y + h.MenuPadding * 2 + 1)
                 end
             end
 
@@ -9248,10 +9252,9 @@ do
                 end
 
                 k.Tabs = {}
+                local maxWidth = 0
 
                 for u, v in next, r do
-                    task.wait(0.012)
-
                     local w = {
                         Name = v,
                         Selected = false,
@@ -9259,14 +9262,17 @@ do
                     }
 
                     w.UIElements.TabItem = f('TextButton', {
-                        Size = UDim2.new(1, 0, 0, 34),
+                        Size = UDim2.new(0, 0, 0, 0),
+                        AutomaticSize = 'XY',
                         BackgroundTransparency = 1,
                         Parent = k.UIElements.Menu.CanvasGroup.ScrollingFrame,
                         Text = v,
                         TextXAlignment = 'Left',
+                        TextYAlignment = 'Center',
                         FontFace = Font.new(e.Font, Enum.FontWeight.Medium),
                         TextSize = 15,
                         TextColor3 = Color3.new(1, 1, 1),
+                        TextWrapped = false,
                     }, {
                         f('UIPadding', {
                             PaddingTop = UDim.new(0, h.TabPadding),
@@ -9341,6 +9347,14 @@ do
                     o()
                     p()
                 end
+                
+                task.delay(0.1, function()
+                    local contentWidth = k.UIElements.UIListLayout.AbsoluteContentSize.X
+                    for _, tab in ipairs(k.Tabs) do
+                        tab.UIElements.TabItem.Size = UDim2.new(0, contentWidth, 0, 0)
+                        tab.UIElements.TabItem.AutomaticSize = 'Y'
+                    end
+                end)
             end
 
             k:Refresh(k.Values)
