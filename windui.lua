@@ -9263,8 +9263,8 @@ do
                     }
 
                     w.UIElements.TabItem = f('TextButton', {
-                        Size = UDim2.new(0, 0, 0, 0),
-                        AutomaticSize = 'XY',
+                        Size = UDim2.new(1, 0, 0, 0),
+                        AutomaticSize = 'Y',
                         BackgroundTransparency = 1,
                         Parent = k.UIElements.Menu.CanvasGroup.ScrollingFrame,
                         Text = v,
@@ -9396,8 +9396,13 @@ do
             b.InputBegan:Connect(function(q)
                 if q.UserInputType == Enum.UserInputType.MouseButton1 or q.UserInputType == Enum.UserInputType.Touch then
                     local r, s = k.UIElements.MenuCanvas.AbsolutePosition, k.UIElements.MenuCanvas.AbsoluteSize
+                    local dropdownPos = k.UIElements.Dropdown.AbsolutePosition
+                    local dropdownSize = k.UIElements.Dropdown.AbsoluteSize
 
-                    if j.Window.CanDropdown and (c.X < r.X or c.X > r.X + s.X or c.Y < (r.Y - 20 - 1) or c.Y > r.Y + s.Y) then
+                    local inDropdownButton = c.X >= dropdownPos.X and c.X <= dropdownPos.X + dropdownSize.X and c.Y >= dropdownPos.Y and c.Y <= dropdownPos.Y + dropdownSize.Y
+                    local inMenu = c.X >= r.X and c.X <= r.X + s.X and c.Y >= (r.Y - 20 - 1) and c.Y <= r.Y + s.Y
+
+                    if j.Window.CanDropdown and not inDropdownButton and not inMenu then
                         k:Close()
                     end
                 end
@@ -11648,10 +11653,14 @@ do
                 Name = 'Title',
                 TextXAlignment = 'Left',
                 TextSize = 16,
-                TextColor3 = Color3.fromHex(f.Theme.Text),
-                ThemeTag = {
-                    TextColor3 = 'Text',
-                },
+                TextColor3 = Color3.new(1, 1, 1),
+            }, {
+                c('UIGradient', {
+                    Color = ColorSequence.new({
+                        ColorSequenceKeypoint.new(0, Color3.fromRGB(59, 130, 246)),
+                        ColorSequenceKeypoint.new(1, Color3.fromRGB(139, 92, 246))
+                    }),
+                }),
             })
 
             g.UIElements.Main = c('Frame', {
@@ -11695,13 +11704,11 @@ do
                     }, {
                         c('UIGradient', {
                             Color = ColorSequence.new({
-                                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-                                ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 127, 0)),
-                                ColorSequenceKeypoint.new(0.33, Color3.fromRGB(255, 255, 0)),
-                                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 0)),
-                                ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 127, 255)),
-                                ColorSequenceKeypoint.new(0.83, Color3.fromRGB(75, 0, 130)),
-                                ColorSequenceKeypoint.new(1, Color3.fromRGB(148, 0, 211)),
+                                ColorSequenceKeypoint.new(0, Color3.fromHex'00d2ff'),
+                                ColorSequenceKeypoint.new(0.25, Color3.fromHex'3a7bd5'),
+                                ColorSequenceKeypoint.new(0.5, Color3.fromHex'ff00cc'),
+                                ColorSequenceKeypoint.new(0.75, Color3.fromHex'333399'),
+                                ColorSequenceKeypoint.new(1, Color3.fromHex'00d2ff'),
                             }),
                             Rotation = 0,
                         }),
@@ -11758,6 +11765,54 @@ do
                                 }),
                                 E,
                             }),
+                            (function()
+                                local FreeButtonContainer = c('Frame', {
+                                    Size = UDim2.new(0, 0, 0, 32),
+                                    AutomaticSize = 'X',
+                                    BackgroundTransparency = 1,
+                                    LayoutOrder = 3,
+                                    Name = 'FreeButtonContainer',
+                                }, {
+                                    c('UIStroke', {
+                                        Thickness = 2,
+                                        Color = Color3.fromRGB(0, 255, 100),
+                                        Transparency = 0.3,
+                                    }),
+                                    c('UICorner', {
+                                        CornerRadius = UDim.new(0, 8),
+                                    }),
+                                    c('UIPadding', {
+                                        PaddingTop = UDim.new(0, 2),
+                                        PaddingLeft = UDim.new(0, 2),
+                                        PaddingRight = UDim.new(0, 2),
+                                        PaddingBottom = UDim.new(0, 2),
+                                    }),
+                                })
+                                local FreeButton = c('TextButton', {
+                                    Text = '永久免费',
+                                    TextSize = 16,
+                                    FontFace = Font.new(b.Font, Enum.FontWeight.SemiBold),
+                                    TextColor3 = Color3.new(1, 1, 1),
+                                    Size = UDim2.new(1, 0, 1, 0),
+                                    BackgroundColor3 = Color3.fromRGB(0, 200, 80),
+                                    BackgroundTransparency = 0.4,
+                                    Parent = FreeButtonContainer,
+                                    Name = 'FreeButton',
+                                }, {
+                                    c('UICorner', {
+                                        CornerRadius = UDim.new(0, 6),
+                                    }),
+                                    c('UIPadding', {
+                                        PaddingTop = UDim.new(0, 5),
+                                        PaddingLeft = UDim.new(0, 12),
+                                        PaddingRight = UDim.new(0, 12),
+                                        PaddingBottom = UDim.new(0, 5),
+                                    }),
+                                })
+                                g.UIElements.FreeButton = FreeButton
+                                g.UIElements.FreeButtonContainer = FreeButtonContainer
+                                return FreeButtonContainer
+                            end)(),
                             c('UIPadding', {
                                 PaddingLeft = UDim.new(0, 4),
                             }),
@@ -11805,7 +11860,7 @@ do
             end
             if g.Author then
                 c('TextLabel', {
-                    Text = 'by ' .. g.Author,
+                    Text = g.Author,
                     FontFace = Font.new(b.Font, Enum.FontWeight.Medium),
                     BackgroundTransparency = 1,
                     TextTransparency = 0.4,
@@ -12714,4 +12769,4 @@ function aa.CreateWindow(j, k)
     return r
 end
 
-return aa
+return aa 
