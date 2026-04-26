@@ -9211,11 +9211,11 @@ do
                 k.UIElements.Menu.CanvasGroup.ScrollingFrame.CanvasSize = UDim2.fromOffset(0, k.UIElements.UIListLayout.AbsoluteContentSize.Y)
             end, function()
                 local contentWidth = k.UIElements.UIListLayout.AbsoluteContentSize.X + h.MenuPadding * 2
-                if #k.Values > 10 then
-                    k.UIElements.MenuCanvas.Size = UDim2.fromOffset(contentWidth, 392)
-                else
-                    k.UIElements.MenuCanvas.Size = UDim2.fromOffset(contentWidth, k.UIElements.UIListLayout.AbsoluteContentSize.Y + h.MenuPadding * 2 + 1)
-                end
+                local maxVisibleItems = 4
+                local itemHeight = 35 + h.MenuPadding / 1.5
+                local maxHeight = maxVisibleItems * itemHeight + h.MenuPadding * 2 + 1
+                local actualHeight = k.UIElements.UIListLayout.AbsoluteContentSize.Y + h.MenuPadding * 2 + 1
+                k.UIElements.MenuCanvas.Size = UDim2.fromOffset(contentWidth, math.min(actualHeight, maxHeight))
             end
 
             function UpdatePosition()
