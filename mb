@@ -1,0 +1,77 @@
+local function loadScript(url) return loadstring(game:HttpGet(url))() end
+local WindUI = loadScript("https://raw.github.com/Footagesus/WindUI/main/dist/main.lua")
+local function KEG(Title, Background)
+	local Window = WindUI:CreateWindow({
+		Title = Title,
+		Background = Background,
+		BackgroundImageTransparency = 0.5,
+		IconThemed = true,
+		Author = "KEG",
+		Folder = "CloudHub",
+		Size = UDim2.fromOffset(300, 270),
+		Transparent = true,
+		User = {
+			Enabled = true,
+			Callback = function() print("clicked") end,
+			Anonymous = false
+		},
+		SideBarWidth = 200,
+		ScrollBarEnabled = true,
+	})
+	Window:EditOpenButton({
+		Title = "打开UI",
+		Icon = "monitor",
+		CornerRadius = UDim.new(0,16),
+		StrokeThickness = 2,
+		Color = ColorSequence.new(
+			Color3.fromHex("FF0F7B"),
+			Color3.fromHex("F89B29")
+		),
+		Draggable = true,
+	})
+	Window:Tag({
+		Title = "V1",
+		Color = Color3.fromHex("00CED1"),
+		Radius = 2,
+	})
+	Window:Tag({
+		Title = "KEG",
+		Icon = "crown",
+		Color = Color3.fromHex("FFD700"),
+		Radius = 2,
+	})
+	return Window
+end
+function AddTab(a, b)
+	return Window:Tab({ Title = a, Icon = b })
+end
+function Btn(a, b, c)
+	return a:Button({ Title = b, Callback = c })
+end
+function Tg(a, b, c, d, e)
+	return a:Toggle({ Title = b, Desc = c, Image = "bird", Value = d, Callback = e })
+end
+function Sld(a, b, c, d, e, f)
+	return a:Slider({ Title = b, Step = 1, Value = { Min = c, Max = d, Default = e }, Callback = f })
+end
+function Dpd1(a, b, c, d, e)
+	return a:Dropdown({ Title = b, Values = c, Value = d, Callback = e })
+end
+function Dpd2(a, b, c, d, e)
+	return a:Dropdown({ Title = b, Values = c, Value = d, Multi = true, AllowNone = true, Callback = e })
+end
+function Tb(a, b, c)
+	return a:Input({ Title = b, Callback = c })
+end
+local function Para(a, title, desc)
+    return a:Paragraph({ Title = title, Desc = desc,})
+end
+function Div(a, b)
+    return a:Divider({ Text = b })
+end
+function Kbd(a, b, c, d, e)
+    return a:Keybind({ Title = b, Default = c, Mode = d, Callback = e })
+end
+function Sec(a, b, c)
+    return a:Section({ Title = b, Icon = c, Opened = false })
+end
